@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
-import Bean
+from EveryBean import Bean
 # 返回DataBeanList
 def dealHtml(html):
+    '''
+    处理html
+    :param html:
+    :return:返回Bilibili List
+    '''
     biliList=[]
+
     soup=BeautifulSoup(html,'html.parser')
-    # print('测试BeautifulSoup',soup.prettify())
 
     for item in soup.find_all('a','list-item'):
         #获取标题
@@ -19,7 +24,7 @@ def dealHtml(html):
         # print(imgUrl)
 
         # 生成DataBean并加入到列表中
-        biliBean=Bean.DataBean(title,contentUrl,imgUrl)
+        biliBean=Bean.DataBean(title, contentUrl, imgUrl)
         biliList.append(biliBean)
 
     print("这一页的资源有 %d 条，现在开始爬虫！" % len(biliList))

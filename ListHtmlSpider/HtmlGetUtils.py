@@ -6,8 +6,13 @@ headers = {
 }
 
 #获取目标Html
-def getBiliHtml(url):
-    return requests.get(url,headers=headers)
+def getHtml(url):
+    '''
+    传入URL 返回Html字符串
+    :param url:
+    :return: String
+    '''
+    return requests.get(url,headers=headers).text
 
 
 

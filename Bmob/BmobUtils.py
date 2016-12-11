@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import Bean
+import EveryBean
 import requests
 import demjson
 #用于查询的URL
@@ -46,9 +46,9 @@ def deleteBmobClass(className):
 
 
 
-def insertBmob(className,list):
+def insertListBmob(className,list):
     '''
-    把list<Bean>写入到bmob中
+    把list<EveryBean>写入到bmob中
     :param className:
     :param list:
     :return: responseCode
@@ -59,6 +59,22 @@ def insertBmob(className,list):
         data['title']=item.getTitle()
         data['contentUrl'] = item.getContentUrl()
         data['imgUrl'] = item.getImgUrl()
+        json=encodeJson(data)
+        print(requests.post(allUrl, headers=headers,data=json).text)
+
+
+def insertContentBmob(className,list):
+    '''
+    把list<EveryBean>写入到bmob中
+    :param className:
+    :param list:
+    :return: responseCode
+    '''
+    allUrl=url+className
+    for item in list:
+        data={}
+        data['url']=item.getContentUrl()
+        data['contentHtml'] = item.getContentHtml()
         json=encodeJson(data)
         print(requests.post(allUrl, headers=headers,data=json).text)
 

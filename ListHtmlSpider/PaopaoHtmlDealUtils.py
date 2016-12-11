@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-import Bean
+from EveryBean import Bean
 
 # 返回DataBeanList
 def dealHtml(html):
@@ -20,7 +20,7 @@ def dealHtml(html):
         imageUrl = re.findall(r"\"F_PicSrc\":\"(.+?)\",",item)
         contentUrl = re.findall(r"\"ArtLink\":\"(.+?)\",", item)
         if title and imageUrl and contentUrl:
-            bean = Bean.DataBean(title[0],contentUrl[0],imageUrl[0])
+            bean = Bean.DataBean(title[0],'http://m.pcpop.com/'+contentUrl[0], imageUrl[0])
             paopaoList.append(bean)
 
     return paopaoList
