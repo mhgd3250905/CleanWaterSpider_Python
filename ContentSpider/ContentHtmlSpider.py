@@ -10,11 +10,12 @@ def getContentIndex(list):
     :param list:
     :return:
     '''
+
     contentBeanList=[]
     for item in list:
         contentUrl=item.getContentUrl()
         # print(contentUrl)
-        contentHtml=getContent(contentUrl)
+        contentHtml=getWeixinContent(contentUrl)
         # print(contentHtml)
         contentBean=ContentBean.ContentBean(contentUrl,contentHtml)
         contentBeanList.append(contentBean)
@@ -22,12 +23,14 @@ def getContentIndex(list):
     return contentBeanList
 
 
-def getContent(url):
+def getPaopaoContent(url):
     '''
     访问目的网页然后去广告之后返回过来
     :param url:
     :return: 处理之后的html文本
     '''
+
+    contentHtml=''
     content=HtmlGetUtils.getHtml(url)
     # print(content)
     soup = BeautifulSoup(content, 'html.parser')
@@ -37,20 +40,30 @@ def getContent(url):
 
     #网页不存在然后报错~
     print(url)
-    print(soup.find('div', 'title3').prettify())
-    divTitle=soup.find('div', 'title3').prettify()
-    print(type(divTitle))
+    # print(soup.find('div', 'title3').prettify())
+    if soup.find('div', 'title3')!=None:
+        divTitle=soup.find('div', 'title3').prettify()
 
-    divMain=soup.find('div', 'main').prettify()
-    # print(divMain)
-    divBottom=soup.find('div', 'tit').prettify()
 
-    contentHtml='<!DOCTYPE HTML><html>'+\
-                head+\
-                '<body>'+\
-                divTitle+\
-                divMain+\
-                divBottom+\
-                '</body></html>'
-    # print(contentHtml)
+        divMain=soup.find('div', 'main').prettify()
+        # print(divMain)
+        # divBottom=soup.find('div', 'tit').prettify()
+
+        contentHtml='<!DOCTYPE HTML><html>'+\
+                    head+\
+                    '<body>'+\
+                    divTitle+\
+                    divMain+\
+                    '</body></html>'
+
+        # print(contentHtml)
     return contentHtml
+
+def getWeixinContent(url):
+    '''
+    爬取微信文章内容
+    :param url:
+    :return:
+    '''
+    content=HtmlGetUtils.getHtml(url)
+    return content

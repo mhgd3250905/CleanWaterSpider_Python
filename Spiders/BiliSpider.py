@@ -19,6 +19,7 @@ def biliSpider():
     #首先删除表
     BmobUtils.deleteBmobClass("BiliBean")
 
+
    #爬虫正式开始
     for i in range(1,11):
         url='http://www.bilibili.com/mobile/list/default-95-%d-%s~%s.html' % (i,date2,date1)

@@ -17,8 +17,17 @@ def PaopaoSpider():
 
     #开始爬
     for i in range(1,11):
-        url='http://m.pcpop.com/IndexHandler.ashx?page=%d&size=20&tag=all&method=bottom' % i
-        html= HtmlGetUtils.getHtml(url)
+        #&lastDate=2016/12/12 0:03:00
+        url='http://m.pcpop.com/handlers/IgeekHandler.ashx'
+        params={
+            'page': '1',
+            'size': '20',
+            'tag':'all',
+            'method':'bottom'
+        }
+        params['page']="%d" % i
+        print(params)
+        html= HtmlGetUtils.getHtml(url,params)
         datalist= PaopaoHtmlDealUtils.dealHtml(html)
         contentList=ContentHtmlSpider.getContentIndex(datalist)
         BmobUtils.insertListBmob('PaopaoBean', datalist)

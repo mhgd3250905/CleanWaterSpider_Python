@@ -10,6 +10,7 @@ def dealHtml(html):
     :param html:
     :return: biliList
     '''
+    print(html)
     paopaoList=[]
     #获取每一个Item
     items=re.findall(r"\{\"ID\".+?\}",html)
@@ -19,8 +20,11 @@ def dealHtml(html):
         title=re.findall(r"\"F_ArtTitle\":\"(.+?)\",",item)
         imageUrl = re.findall(r"\"F_PicSrc\":\"(.+?)\",",item)
         contentUrl = re.findall(r"\"ArtLink\":\"(.+?)\",", item)
-        if title and imageUrl and contentUrl:
-            bean = Bean.DataBean(title[0],'http://m.pcpop.com/'+contentUrl[0], imageUrl[0])
-            paopaoList.append(bean)
+        # if 'article' in contentUrl[0] and len(imageUrl)>0:
+        #     # if re.
+        #     content='http://m.pcpop.com/'+contentUrl[0]
+        print(contentUrl[0])
+        bean = Bean.DataBean(title[0],contentUrl[0], imageUrl[0])
+        paopaoList.append(bean)
 
     return paopaoList
