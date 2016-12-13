@@ -27,6 +27,6 @@ def dealHtml(html):
         biliBean=Bean.DataBean(title, contentUrl, imgUrl)
         biliList.append(biliBean)
 
-    print("这一页的资源有 %d 条，现在开始爬虫！" % len(biliList))
+    # print("这一页的资源有 %d 条，现在开始爬虫！" % len(biliList))
 
     return biliList

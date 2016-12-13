@@ -32,4 +32,4 @@ def PaopaoSpider():
         contentList=ContentHtmlSpider.getContentIndex(datalist)
         BmobUtils.insertListBmob('PaopaoBean', datalist)
         BmobUtils.insertContentBmob('PaopaoContentBean',contentList)
-        print("经过不懈的努力，开哥爬下了第 %d 页" % i)
+        print("经过不懈的努力，开哥爬下了泡泡网第 %d 页" % i)

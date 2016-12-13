@@ -27,4 +27,4 @@ def biliSpider():
         html= HtmlGetUtils.getHtml(url)
         datalist= BiliHtmlDealUtils.dealHtml(html)
         BmobUtils.insertListBmob('BiliBean', datalist)
-        print("经过不懈的努力，开哥爬下了第 %d 页" % i)
+        print("经过不懈的努力，开哥爬下了哔哩哔哩第 %d 页" % i)
