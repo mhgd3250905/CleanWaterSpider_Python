@@ -14,6 +14,7 @@ def huXiuSpider():
     '''
     #首先删除表
     BmobUtils.deleteBmobClass("HXBean")
+    BmobUtils.deleteBmobClass("HXContentBean")
 
     # 爬虫正式开始
     for i in range(1, 2):

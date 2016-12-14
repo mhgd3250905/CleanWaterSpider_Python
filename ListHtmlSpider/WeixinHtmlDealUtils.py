@@ -8,7 +8,7 @@ def dealHtml(html):
     :param html:
     :return:返回Bilibili List
     '''
-    biliList=[]
+    WXList=[]
 
     soup=BeautifulSoup(html,'html.parser')
     # print(soup)
@@ -18,18 +18,19 @@ def dealHtml(html):
 
         #获取标题
         title = item.find('div', 'news_txt_box2').text
-        # print(title)
+        print(title)
         # 获取内容链接
         contentUrl=item.find('a')['href']
-        # print(contentUrl)
+        print(contentUrl)
         #获取图片链接
         imgUrl=item.find('div','news_lst_thumb2').find('img')['src']
-        # print(imgUrl)
+        print(imgUrl)
 
         # 生成DataBean并加入到列表中
         weixinBean=Bean.DataBean(title, contentUrl, imgUrl)
-        biliList.append(weixinBean)
+        WXList.append(weixinBean)
+
         print('==================================================================')
 
 
-    return biliList
+    return WXList

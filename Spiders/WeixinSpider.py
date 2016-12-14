@@ -29,11 +29,11 @@ def WeixinSpider():
     }
 
     #开始爬
-    for i in range(1,11):
+    for i in range(1,3):
         #&lastDate=2016/12/12 0:03:00
         url='http://weixin.sogou.com/wapindex/wap/0612/wap_9/%d.html' % i
         html= HtmlGetUtils.getHtml(url, headers=headers)
-        # print(html)
+        print(html)
         datalist= WeixinHtmlDealUtils.dealHtml(html)
         contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
         BmobUtils.insertListBmob('WeixinBean', datalist)

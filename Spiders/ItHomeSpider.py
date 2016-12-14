@@ -14,6 +14,7 @@ def itHomeSpider():
     '''
     #首先删除表
     BmobUtils.deleteBmobClass("ItBean")
+    BmobUtils.deleteBmobClass("ItContentBean")
 
     # 爬虫正式开始
     for i in range(1, 2):
