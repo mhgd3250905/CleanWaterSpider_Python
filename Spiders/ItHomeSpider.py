@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-import datetime
-import time
 
 from Bmob import BmobUtils
-from ListHtmlSpider import HtmlGetUtils, BiliHtmlDealUtils,ItHomeHtmlDealUtils
+from ContentSpider import ContentHtmlSpider
+from HtmlUtils import HtmlGetUtils
+from ListHtmlSpider import ItHomeHtmlDealUtils
+
 
 #http://wap.ithome.com/ithome/getajaxdata.aspx?page=2&type=wapcategorypage
 def itHomeSpider():
@@ -21,7 +22,9 @@ def itHomeSpider():
         html = HtmlGetUtils.getHtml(url)
         # print(html)
         datalist = ItHomeHtmlDealUtils.dealHtml(html)
-        # BmobUtils.insertListBmob('ItBean', datalist)
+        contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
+        BmobUtils.insertListBmob('ItBean', datalist)
+        BmobUtils.insertContentBmob('ItContentBean',contentList)
         print("经过不懈的努力，开哥爬下了IT之家第 %d 页" % i)
 
 

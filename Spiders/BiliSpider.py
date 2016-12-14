@@ -3,7 +3,8 @@ import datetime
 import time
 
 from Bmob import BmobUtils
-from ListHtmlSpider import HtmlGetUtils, BiliHtmlDealUtils
+from HtmlUtils import HtmlGetUtils
+from ListHtmlSpider import BiliHtmlDealUtils
 
 
 def biliSpider():

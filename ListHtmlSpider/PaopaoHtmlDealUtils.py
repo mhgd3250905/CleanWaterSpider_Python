@@ -26,6 +26,7 @@ def dealHtml(html):
         print(contentUrl[0])
         bean = Bean.DataBean(title[0],contentUrl[0], imageUrl[0])
         paopaoList.append(bean)
+        print('==================================================================')
 
 
 

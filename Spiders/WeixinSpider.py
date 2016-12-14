@@ -2,8 +2,9 @@
 
 
 from Bmob import BmobUtils
-from ListHtmlSpider import HtmlGetUtils, PaopaoHtmlDealUtils,WeixinHtmlDealUtils
 from ContentSpider import ContentHtmlSpider
+from HtmlUtils import HtmlGetUtils
+from ListHtmlSpider import WeixinHtmlDealUtils
 
 
 #http://weixin.sogou.com/wapindex/wap/0612/wap_9/0.html
@@ -31,10 +32,10 @@ def WeixinSpider():
     for i in range(1,11):
         #&lastDate=2016/12/12 0:03:00
         url='http://weixin.sogou.com/wapindex/wap/0612/wap_9/%d.html' % i
-        html= HtmlGetUtils.getHtml(url,headers=headers)
+        html= HtmlGetUtils.getHtml(url, headers=headers)
         # print(html)
         datalist= WeixinHtmlDealUtils.dealHtml(html)
-        contentList=ContentHtmlSpider.getContentIndex(datalist)
+        contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
         BmobUtils.insertListBmob('WeixinBean', datalist)
         BmobUtils.insertContentBmob('WeixinContentBean',contentList)
         print("经过不懈的努力，开哥爬下了微信订阅号第 %d 页" % i)

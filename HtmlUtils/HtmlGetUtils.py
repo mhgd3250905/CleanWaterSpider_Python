@@ -18,6 +18,7 @@ def byteToString(byteData):
     return BytesIO(byteData).read().decode()
 
 #获取目标Html
+
 def getHtml(url,params=0,headers=0):
     '''
     传入URL 返回Html字符串

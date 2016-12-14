@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Spiders import PaopaoSpider, BiliSpider,WeixinSpider,ItHomeSpider
+from Spiders import PaopaoSpider, BiliSpider,WeixinSpider,ItHomeSpider,HXSpider
 from ContentSpider import ContentHtmlSpider
 
 url = 'http://www.bilibili.com/mobile/list/default-95-3-2016-12-03~2016-12-10.html'
@@ -12,7 +12,9 @@ if __name__=='__main__':
     #爬区搜狗微信
     # WeixinSpider.WeixinSpider()
     #爬取IT之家
-    ItHomeSpider.itHomeSpider()
+    # ItHomeSpider.itHomeSpider()
+    #爬取虎嗅网
+    HXSpider.huXiuSpider()
 
 
 

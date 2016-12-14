@@ -1,21 +1,30 @@
 # -*- coding: utf-8 -*-
 
-from EveryBean import ContentBean
-from ListHtmlSpider import HtmlGetUtils
 from bs4 import BeautifulSoup
 
-def getContentIndex(list):
+from EveryBean import ContentBean
+from HtmlUtils import HtmlGetUtils
+
+
+def getContentIndex(list,type):
     '''
     把处理好的contentBean加入到List中进行返回
     :param list:
-    :return:
+    :return:contentList
     '''
 
     contentBeanList=[]
     for item in list:
         contentUrl=item.getContentUrl()
         # print(contentUrl)
-        contentHtml=getWeixinContent(contentUrl)
+        contentHtml=''
+        if type=='WX':
+            #WX 方式采用的是真个HTML获取
+            contentHtml=getWeixinContent(contentUrl)
+        elif type=='Paopao':
+            #Paopao网专用方式
+            contentHtml=getPaopaoContent(contentUrl)
+
         # print(contentHtml)
         contentBean=ContentBean.ContentBean(contentUrl,contentHtml)
         contentBeanList.append(contentBean)
@@ -31,7 +40,7 @@ def getPaopaoContent(url):
     '''
 
     contentHtml=''
-    content=HtmlGetUtils.getHtml(url)
+    content= HtmlGetUtils.getHtml(url)
     # print(content)
     soup = BeautifulSoup(content, 'html.parser')
 
@@ -65,5 +74,15 @@ def getWeixinContent(url):
     :param url:
     :return:
     '''
-    content=HtmlGetUtils.getHtml(url)
+    content= HtmlGetUtils.getHtml(url)
     return content
+
+# def getITContent(url):
+#     '''
+#
+#     :param url:
+#     :return:contentHtml
+#     '''
+#     content= HtmlGetUtils.getHtml(url)
+#
+#     return content

@@ -29,6 +29,7 @@ def dealHtml(html):
         # 生成DataBean并加入到列表中
         weixinBean=Bean.DataBean(title, contentUrl, imgUrl)
         biliList.append(weixinBean)
+        print('==================================================================')
 
 
     return biliList
