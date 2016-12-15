@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Spiders import PaopaoSpider, BiliSpider,WeixinSpider,ItHomeSpider,HXSpider
+from Spiders import PaopaoSpider, BiliSpider,WeixinSpider,ItHomeSpider,HXSpider,FHSpider
 from ContentSpider import ContentHtmlSpider
 import threading
 
@@ -26,17 +26,9 @@ WXThread = myThread(1,'微信科技公众号',WeixinSpider.WX())
 ITThread = myThread(2,'IT之家',ItHomeSpider.IT())
 PPThread = myThread(3,'泡泡网',PaopaoSpider.PP())
 HXThread = myThread(4,'虎嗅网',HXSpider.HX())
+FHThread = myThread(5,'凤凰科技',FHSpider.FH())
 
 if __name__=='__main__':
-
-    WXThread.start()
-    ITThread.start()
-    PPThread.start()
-    HXThread.start()
-    WXThread.join()
-    ITThread.join()
-    PPThread.join()
-    HXThread.join()
 
     #爬取哔哩哔哩的科技栏位推荐内容
     # BiliSpider.biliSpider()
@@ -47,16 +39,19 @@ if __name__=='__main__':
     # #爬取IT之家
     # ItHomeSpider.itHomeSpider()
     #爬取虎嗅网
-    #
-    # PpThread.start()
-    # WxThread.start()
-    # ITThread.start()
-    # HXThread.start()
 
-    # PpThread.join()
-    # WxThread.join()
-    # ITThread.join()
-    # HXThread.join()
+    PPThread.start()
+    WXThread.start()
+    ITThread.start()
+    HXThread.start()
+    FHThread.start()
+
+
+    PPThread.join()
+    WXThread.join()
+    ITThread.join()
+    HXThread.join()
+    FHThread.join()
 
 
 

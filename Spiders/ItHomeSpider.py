@@ -19,7 +19,7 @@ class IT:
         BmobUtils.deleteBmobClass("ItContentBean")
 
         # 爬虫正式开始
-        for i in range(1, 2):
+        for i in range(1, 11):
             url = 'http://www.ithome.com/ithome/getajaxdata.aspx?page=%d&type=indexpage' % (i)
             print(url)
             html = HtmlGetUtils.getHtml(url)
