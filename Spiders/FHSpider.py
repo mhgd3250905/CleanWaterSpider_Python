@@ -31,10 +31,10 @@ class FH:
             html = HtmlGetUtils.getHtml(url)
 
             datalist = FHHtmlDealUtils.dealHtml(html)
-            contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
+            # contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
 
             BmobUtils.insertListBmob('FHBean', datalist)
-            BmobUtils.insertContentBmob('FHContentBean',contentList)
+            # BmobUtils.insertContentBmob('FHContentBean',contentList)
             print("经过不懈的努力，开哥爬下了IT之家第 %d 页" % i)
 
 

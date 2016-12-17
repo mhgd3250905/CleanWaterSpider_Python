@@ -19,9 +19,9 @@ class PW:
 
         for i in range(1,11):
             dataList=self.PWSecondListSpider(i)
-            contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
+            # contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
             BmobUtils.insertListBmob('PWBean', dataList)
-            BmobUtils.insertContentBmob('PWContentBean', contentList)
+            # BmobUtils.insertContentBmob('PWContentBean', contentList)
             print("经过不懈的努力，开哥爬下了品玩科技第 %d 页" % i)
 
 

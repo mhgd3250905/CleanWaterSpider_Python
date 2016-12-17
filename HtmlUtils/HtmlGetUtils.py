@@ -39,6 +39,7 @@ def getHtml(url,params=0,headers=0):
         else:
             mergedHeaders=dict(baseHeaders, **headers)
             response=requests.get(url, headers=mergedHeaders)
+            # return response.text
             if response.headers['Content-Encoding']=='gzip':
                 result=BytesIO(response.content).read().decode()
                 return result

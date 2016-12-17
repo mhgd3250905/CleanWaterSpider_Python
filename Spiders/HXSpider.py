@@ -28,9 +28,9 @@ class HX:
                 dataList=self.HXFirstListSpider()
             else:
                 dataList=self.HXSecondListSpider(i)
-            contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
+            # contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
             BmobUtils.insertListBmob('HXBean', dataList)
-            BmobUtils.insertContentBmob('HXContentBean', contentList)
+            # BmobUtils.insertContentBmob('HXContentBean', contentList)
             print("经过不懈的努力，开哥爬下了虎嗅网第 %d 页" % i)
 
 

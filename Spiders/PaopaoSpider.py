@@ -19,7 +19,7 @@ class PP:
         BmobUtils.deleteBmobClass('PaopaoContentBean')
 
         #开始爬
-        for i in range(1,11):
+        for i in range(4,5):
             #&lastDate=2016/12/12 0:03:00
             url='http://m.pcpop.com/handlers/IgeekHandler.ashx'
             params={
@@ -29,10 +29,10 @@ class PP:
                 'method':'bottom'
             }
             params['page']="%d" % i
-            print(params)
+            # print(params)
             html= HtmlGetUtils.getHtml(url, params)
             datalist= PaopaoHtmlDealUtils.dealHtml(html)
-            contentList=ContentHtmlSpider.getContentIndex(datalist,'Paopao')
+            # contentList=ContentHtmlSpider.getContentIndex(datalist,'Paopao')
             BmobUtils.insertListBmob('PaopaoBean', datalist)
-            BmobUtils.insertContentBmob('PaopaoContentBean',contentList)
+            # BmobUtils.insertContentBmob('PaopaoContentBean',contentList)
             print("经过不懈的努力，开哥爬下了泡泡网第 %d 页" % i)

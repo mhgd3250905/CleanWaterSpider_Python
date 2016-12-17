@@ -27,28 +27,36 @@ FHThread = myThread(5,'凤凰科技',FHSpider.FH())
 PWThread = myThread(6,'品玩',PWSpider.PW())
 
 if __name__=='__main__':
-    #开启所有爬虫线程
+    # 开启所有爬虫线程
     # PPThread.start()#泡泡网
-    # WXThread.start()#微信科技
+    WXThread.start()#微信科技
     # ITThread.start()#IT之家
     # HXThread.start()#虎嗅网
     # FHThread.start()#凤凰科技
     # PWThread.start()#品玩网
 
     # PPThread.join()
-    # WXThread.join()
+    WXThread.join()
     # ITThread.join()
     # HXThread.join()
     # FHThread.join()
     # PWThread.join()
 
-    headers={
-        'X-Bmob-Application-Id':'9e16e39fa5374f446e5c928da0f83d62',
-        'X-Bmob-REST-API-Key':'42db163cd4c45884279b914e1c2a4e75',
-        'Content-Type':'application/json'
-    }
-    response=requests.get('https://api.bmob.cn/1/classes/HXContentBean/d55794c2f5',headers=headers).text
-    print(response)
+    print('''
+
+                 ▍ ★∴
+                　　．．．．▍▍．..．█▍ ☆ ★∵ ..../
+                　　◥█▅▅██▅▅██▅▅▅▅▅███◤
+                 　 ．◥███████████████◤
+                ～～～～◥█████████████◤～～～～''')
+
+    # headers={
+    #     'X-Bmob-Application-Id':'9e16e39fa5374f446e5c928da0f83d62',
+    #     'X-Bmob-REST-API-Key':'42db163cd4c45884279b914e1c2a4e75',
+    #     'Content-Type':'application/json'
+    # }
+    # response=requests.get('https://api.bmob.cn/1/classes/HXContentBean/d55794c2f5',headers=headers).text
+    # print(response)
 
 
 

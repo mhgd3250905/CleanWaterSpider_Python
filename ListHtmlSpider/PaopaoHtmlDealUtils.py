@@ -10,7 +10,7 @@ def dealHtml(html):
     :param html:
     :return: biliList
     '''
-    print(html)
+    # print(html)
     paopaoList=[]
     #获取每一个Item
     items=re.findall(r"\{\"ID\".+?\}",html)

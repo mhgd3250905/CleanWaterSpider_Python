@@ -34,7 +34,8 @@ class WX:
             html= HtmlGetUtils.getHtml(url, headers=headers)
             print(html)
             datalist= WeixinHtmlDealUtils.dealHtml(html)
-            contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
+            # contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
             BmobUtils.insertListBmob('WeixinBean', datalist)
-            BmobUtils.insertContentBmob('WeixinContentBean',contentList)
+            # BmobUtils.insertContentBmob('WeixinContentBean',contentList)
             print("经过不懈的努力，开哥爬下了微信订阅号第 %d 页" % i)
+
