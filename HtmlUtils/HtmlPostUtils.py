@@ -6,11 +6,18 @@ import requests
 #     'Connection':'close'
 # }
 
-def postHtml(url,data):
+def postHtml(url,data,type):
     '''
     :param url:
     :param data:
     :return:html
     '''
-    response=requests.post(url,data=data)
-    return response.json()['data']
+    if type=='HX':
+        response = requests.post(url, data=data)
+        return response.json()['data']
+    elif type=='PW':
+        response=requests.post(url,data=data)
+        return response.text
+
+
+

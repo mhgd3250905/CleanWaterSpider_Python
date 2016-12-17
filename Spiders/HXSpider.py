@@ -23,15 +23,15 @@ class HX:
         #第二部分  往期新闻爬取
         #   主要是对URl：https://m.huxiu.com/maction/article_list 【post {page：'i'}】的分析
         #
-        for i in range(1,11):
+        for i in range(1,2):
             if i==1:
                 dataList=self.HXFirstListSpider()
             else:
                 dataList=self.HXSecondListSpider(i)
-                contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
-                BmobUtils.insertListBmob('HXBean', dataList)
-                BmobUtils.insertContentBmob('HXContentBean', contentList)
-                print("经过不懈的努力，开哥爬下了虎嗅网第 %d 页" % i)
+            contentList = ContentHtmlSpider.getContentIndex(dataList, 'WX')
+            BmobUtils.insertListBmob('HXBean', dataList)
+            BmobUtils.insertContentBmob('HXContentBean', contentList)
+            print("经过不懈的努力，开哥爬下了虎嗅网第 %d 页" % i)
 
 
 
@@ -63,7 +63,7 @@ class HX:
         data={
             'page':index
         }
-        html= HtmlPostUtils.postHtml(url,data)
+        html= HtmlPostUtils.postHtml(url,data=data,type='HX')
         dataList=HXHtmlDealUtils.dealSecondHtml(html)
         return dataList
 
