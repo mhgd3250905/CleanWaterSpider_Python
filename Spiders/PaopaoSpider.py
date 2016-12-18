@@ -15,11 +15,10 @@ class PP:
         :return:
         '''
         #清空一下数据表
-        BmobUtils.deleteBmobClass('PaopaoBean')
-        BmobUtils.deleteBmobClass('PaopaoContentBean')
+        # BmobUtils.deleteBmobClass('PaopaoBean')
 
         #开始爬
-        for i in range(4,5):
+        for i in range(1,11):
             #&lastDate=2016/12/12 0:03:00
             url='http://m.pcpop.com/handlers/IgeekHandler.ashx'
             params={

@@ -17,8 +17,8 @@ class FH:
         :return:
         '''
         #首先删除表
-        BmobUtils.deleteBmobClass("FHBean")
-        BmobUtils.deleteBmobClass("FHContentBean")
+        # BmobUtils.deleteBmobClass("FHBean")
+
 
         # 爬虫正式开始
         for i in range(0, 10):
@@ -29,12 +29,8 @@ class FH:
             #返回内容：getListDatacallback(...)
             #所以需要处理一下
             html = HtmlGetUtils.getHtml(url)
-
             datalist = FHHtmlDealUtils.dealHtml(html)
-            # contentList=ContentHtmlSpider.getContentIndex(datalist,'WX')
-
             BmobUtils.insertListBmob('FHBean', datalist)
-            # BmobUtils.insertContentBmob('FHContentBean',contentList)
             print("经过不懈的努力，开哥爬下了IT之家第 %d 页" % i)
 
 

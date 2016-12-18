@@ -20,7 +20,7 @@ class BL:
         date2=(datetime.date.today() + datetime.timedelta(days=-7)).strftime("%Y-%m-%d")
 
         #首先删除表
-        BmobUtils.deleteBmobClass("BiliBean")
+        # BmobUtils.deleteBmobClass("BiliBean")
 
 
        #爬虫正式开始

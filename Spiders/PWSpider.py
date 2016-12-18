@@ -13,8 +13,7 @@ class PW:
         :return:
         '''
         #首先删除表
-        BmobUtils.deleteBmobClass("PWBean")
-        BmobUtils.deleteBmobClass("PWContentBean")
+        # BmobUtils.deleteBmobClass("PWBean")
 
 
         for i in range(1,11):
@@ -38,7 +37,7 @@ class PW:
         }
 
         html= HtmlPostUtils.postHtml(url2,data=data,type='PW')
-        print(html)
+        # print(html)
         datalist = PWHtmlDealUtils.dealFirstHtml(html)
         return datalist
 

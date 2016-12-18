@@ -14,8 +14,7 @@ class HX:
         :return:
         '''
         #首先删除表
-        BmobUtils.deleteBmobClass("HXBean")
-        BmobUtils.deleteBmobClass("HXContentBean")
+        # BmobUtils.deleteBmobClass("HXBean")
 
         #虎嗅网分为两个部分：
         #第一部分  当日新闻爬取
@@ -23,7 +22,7 @@ class HX:
         #第二部分  往期新闻爬取
         #   主要是对URl：https://m.huxiu.com/maction/article_list 【post {page：'i'}】的分析
         #
-        for i in range(1,2):
+        for i in range(1,11):
             if i==1:
                 dataList=self.HXFirstListSpider()
             else:

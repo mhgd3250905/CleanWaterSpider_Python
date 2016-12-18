@@ -17,8 +17,7 @@ class WX:
         :return:
         '''
         #清空一下数据表
-        BmobUtils.deleteBmobClass('WeixinBean')
-        BmobUtils.deleteBmobClass('WeixinContentBean')
+        # BmobUtils.deleteBmobClass('WeixinBean')
 
         headers={
             'Accept':'*/*',

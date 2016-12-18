@@ -15,8 +15,7 @@ class IT:
         :return:
         '''
         #首先删除表
-        BmobUtils.deleteBmobClass("ITBean")
-        BmobUtils.deleteBmobClass("ITContentBean")
+        # BmobUtils.deleteBmobClass("ITBean")
 
         # 爬虫正式开始
         for i in range(1, 11):
