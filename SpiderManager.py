@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Spiders import PaopaoSpider,WeixinSpider,ItHomeSpider,HXSpider,FHSpider,PWSpider,GGSpider
+from Spiders import PaopaoSpider,WeixinSpider,ItHomeSpider,HXSpider,FHSpider,PWSpider,GGSpider,TSMCSpider,WYFCSpider
 import threading
 import requests
 import time
@@ -32,6 +32,7 @@ def startSpider():
     FHThread = myThread(5,'凤凰科技',FHSpider.FH())
     PWThread = myThread(6,'品玩',PWSpider.PW())
     GGThread = myThread(7, '硅谷密探', GGSpider.GG())
+    TSMCThread = myThread(8, 'TSMC', TSMCSpider.TSMC())
     PPThread.start()  # 泡泡网
     WXThread.start()  # 微信科技
     ITThread.start()  # IT之家
@@ -39,6 +40,7 @@ def startSpider():
     FHThread.start()  # 凤凰科技
     PWThread.start()  # 品玩网
     GGThread.start()  # 硅谷密探
+    TSMCThread.start()#TSMC新闻
 
     PPThread.join()
     WXThread.join()
@@ -47,10 +49,12 @@ def startSpider():
     FHThread.join()
     PWThread.join()
     GGThread.join()
+    TSMCThread.join()
 
 if __name__=='__main__':
     # 开启所有爬虫线程
     startSpider()
+
     print('''
 
                  ▍ ★∴
